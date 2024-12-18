@@ -1,12 +1,10 @@
-# Étape 1 : Construction
+
 FROM node:23 AS build
 WORKDIR /app
 
-# Copier les fichiers de dépendances et installer les dépendances
 COPY package*.json ./
 RUN npm install --legacy-peer-deps
 
-# Copier tous les fichiers du projet et construire l'application Next.js
 COPY . .
 RUN npm run build
 
